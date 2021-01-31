@@ -9,9 +9,13 @@ const {ensureAuthenticated, forwardAuthenticated,modAuthenticated} = require('..
 
 // user get
 router.get("/register",forwardAuthenticated, async (req, res,next) => {
-  
+  let loggedin=false
+  if(req.user){
+    loggedin = true
+  }
   res.render('signup.ejs',{
-    user: req.user
+    user: req.user,
+    loggedin:loggedin
   })
 })
 router.post("/register", async (req, res) => {
@@ -29,8 +33,13 @@ router.post("/register", async (req, res) => {
   }
 });
 router.get('/login',forwardAuthenticated, (req,res)=>{
+  let loggedin=false
+  if(req.user){
+    loggedin = true
+  }
   res.render('login.ejs',{
-    user: req.user
+    user: req.user,
+    loggedin:loggedin
   })
 })
 router.post('/login', (req, res, next) => {
@@ -43,11 +52,16 @@ router.post('/login', (req, res, next) => {
   (req, res, next);
 });
 router.get('/dashboard', modAuthenticated, (req,res)=>{
+  let loggedin=false
+  if(req.user){
+    loggedin = true
+  }
   Service.find({},(err,services)=>{
     
     res.render('dashboard.ejs',{
       user: req.user,
-      services: services
+      services: services,
+      loggedin:loggedin
     })
   })
   

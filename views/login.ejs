@@ -1,19 +1,16 @@
-<html>
-  <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="/loginstyle.css" />
-  </head>
+<%- include ("./partials/head.ejs",{title:"Login"}) %>
   <body>
-    
+    <%- include ("./header.ejs",{loggedin:loggedin}) %>
     <div class="loginbox">
-      <img src="user.png" class="avatar" />
+      
       <h1>Log In</h1>
-      <form action="/users/login" method="POST">
-        <p>Email</p>
-        <input type="email" name="email" placeholder="Enter Username" />
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Enter Password" />
-        <input type="submit"   />
+      <form class="w-50 mx-3" action="/users/login" method="POST">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Username" />
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter Password" />
+        <button class="btn btn-primary my-3" type="submit">Log in</button>
+        <br>
         <a href="/users/register">Don't have an account?</a>
       </form>
     </div>

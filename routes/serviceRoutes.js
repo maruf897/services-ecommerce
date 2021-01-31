@@ -9,9 +9,13 @@ const stringSimilarity = require("string-similarity");
   
 
 router.get("/addservice",modAuthenticated, async (req, res,next) => {
-  
+  let loggedin=false
+  if(req.user){
+    loggedin = true
+  }
   res.render('addservice.ejs',{
-    user: req.user
+    user: req.user,
+    loggedin:loggedin
   })
 })
 router.post("/addservice",modAuthenticated, async (req, res) => {
@@ -25,6 +29,7 @@ router.post("/addservice",modAuthenticated, async (req, res) => {
   }
 });
 router.get("/:id", async (req, res,next) => {
+  
   Service.findById(req.params.id, function (err, service)  {
     let type="none"
     let loggedin= false

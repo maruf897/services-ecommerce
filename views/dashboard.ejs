@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
+<%- include ("./partials/head.ejs",{title:"Dashboard"}) %>
 <body>
-    <a href="/">Home</a>
+    <%- include ("./header.ejs",{loggedin:loggedin}) %>
+    
  
     <h1>Dashboard</h1>
     <h3><%= user.name %></h3>
-    <a href="/service/addservice">Add service</a>
-    <a href="/users/logout">logout</a>
+    <a class="btn btn-primary" href="/service/addservice">Add service</a>
+    
     <div class="service">
         <h4>Service List</h4>
         <% services.forEach((service)=>{ %>

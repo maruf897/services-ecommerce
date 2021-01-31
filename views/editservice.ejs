@@ -1,5 +1,8 @@
-<a href="/">Home</a>
-    <a href="/users/dashboard">Dashboard</a>
+
+  <%- include ("./partials/head.ejs",{title:"Edit Service"}) %>
+  
+      <%- include ("./header.ejs",{loggedin:loggedin}) %>
+      
 <h1>Edit Service</h1>
     <form id="serviceform"  >
         <label for="servicetitle">Service Title </label>
