@@ -1,0 +1,43 @@
+<%- include ("./header.ejs",{loggedin:loggedin}) %>
+<h1>Service Title: <%= service.title%> </h1>
+<p>Service Description: <%= service.description%></p>
+<h3>Price Chart</h3>
+<table>
+    <tr>
+        <th>Company</th>
+        <th>Suv Price</th>
+        <th>Minivan Price</th>
+        <th>Sedan Price</th>
+        
+    </tr>
+    <% service.companies.forEach((company)=>{ %>
+    <tr>
+        <td><%= company.name%></td>
+        <td>TK <%= company.suvprice%></td>
+        <td>TK <%= company.minivanprice%></td>
+        <td>TK <%= company.sedanprice%></td>
+        <% if(user == "none"|| user =="customer"){ %> 
+            <span id="username" style="display: none;"><%= user %></span>
+            <td><input type="radio" ><label >Suv</label>
+                <input type="radio" ><label >MiniVan</label>
+                <input type="radio" ><label >Sedan</label>
+            </td>
+        <td><button id="bookbttn">Book</button></td>
+        <% }%>
+    </tr>
+    <% }) %>
+</table>
+<script >
+    let bookbttn = document.querySelectorAll('#bookbttn').forEach(item => {
+  item.addEventListener('click', event =>{
+    let user = document.querySelector('#username').innerText;
+        
+        console.log(user)
+        if (user =="none"){location.replace("/users/login")}
+        else {
+            alert("BOOKED!!")
+        }
+
+  })})
+    
+</script>

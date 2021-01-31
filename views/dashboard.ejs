@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <a href="/">Home</a>
+ 
+    <h1>Dashboard</h1>
+    <h3><%= user.name %></h3>
+    <a href="/service/addservice">Add service</a>
+    <a href="/users/logout">logout</a>
+    <div class="service">
+        <h4>Service List</h4>
+        <% services.forEach((service)=>{ %>
+        <a href="/service/<%= service._id %>"><%= service.title %></a>
+        <a href="/service/edit/<%= service._id %>">Edit</a>
+        <a href="/service/delete/<%= service._id %>">Delete</a>
+        <br>
+        <% }) %>
+    </div>
+</body>
+</html>

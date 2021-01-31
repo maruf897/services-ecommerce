@@ -1,0 +1,24 @@
+
+<link rel="stylesheet" href="/style.css">
+<header>
+
+    <div class="topnav">
+
+        <img src="Logo_VSS.png" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <% if (!loggedin){ %>
+                <li><a href="/users/login"><button id="login">LOG IN</button></a></li>
+                <li><a href="/users/register"><button id="createAcc">Create account</button></a></li>
+                <% } else{ %>
+                <li><a href="/users/dashboard"><button id="dashboard">Dashboard</button></a></li>
+
+                <li><a href="/users/logout"><button id="logout">Logout</button></a></li>
+                <% } %>
+            </ul>
+        </nav>
+      </div>
+</header>

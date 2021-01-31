@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Create New Account</title>
+        <link rel="stylesheet" href="/signup.css">
+    </head>
+    <body>
+        
+        <div class="signupbox">
+            <img src="newuser.png" class="nuser">
+            <h1>Create New Account</h1>
+            <form action="/users/register" method="POST">
+                <p>Full Name</p>
+                <input type="text" name="name" placeholder="Enter your full name">
+                
+                <p>New Password</p>
+                <input type="password" name="password" placeholder="Enter New Password">
+                <p>Email</p>
+                <input type="email" name="email" placeholder="Enter your email address">
+                <p>Mobile Number</p>
+                <input type="number" name="number" placeholder="Enter your mobile number">
+                <input type="submit"  value="Create New Account">
+            </form>
+        </div>
+    </body>
+</html>
