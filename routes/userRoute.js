@@ -51,7 +51,7 @@ router.post('/login', (req, res, next) => {
   
   (req, res, next);
 });
-router.get('/dashboard', modAuthenticated, (req,res)=>{
+router.get('/dashboard', ensureAuthenticated, (req,res)=>{
   let loggedin=false
   if(req.user){
     loggedin = true

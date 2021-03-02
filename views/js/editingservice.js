@@ -3,13 +3,13 @@ let noOfComapany = parseInt($("#noOfCompanies").val())
 $('#addcompany').click(()=>{
     noOfComapany +=1
     let html = `<br><label for="servicecompany${noOfComapany}">Comapany Name </label>
-    <input type="text" name="servicecompanyname${noOfComapany}" id="servicecompanyname${noOfComapany}">
+    <input type="text"class="form-control" name="servicecompanyname${noOfComapany}" id="servicecompanyname${noOfComapany}">
     <label for="servicecompany${noOfComapany}">Price for suv </label>
-    <input type="text" name="company${noOfComapany}suvprice" id="company${noOfComapany}suvprice">
+    <input type="text"class="form-control" name="company${noOfComapany}suvprice" id="company${noOfComapany}suvprice">
     <label for="servicecompany${noOfComapany}">Price for minivan </label>
-    <input type="text" name="company${noOfComapany}minivanprice" id="company${noOfComapany}minivanprice">
+    <input type="text"class="form-control" name="company${noOfComapany}minivanprice" id="company${noOfComapany}minivanprice">
     <label for="servicecompany${noOfComapany}">Price for sedan </label>
-    <input type="text" name="company${noOfComapany}sedanprice" id="company${noOfComapany}sedanprice">`
+    <input type="text"class="form-control" name="company${noOfComapany}sedanprice" id="company${noOfComapany}sedanprice">`
 
     $('#serviceform').append(html)
     $("#noOfCompanies").val(noOfComapany)

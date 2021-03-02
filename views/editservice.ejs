@@ -6,19 +6,19 @@
 <h1>Edit Service</h1>
     <form id="serviceform"  >
         <label for="servicetitle">Service Title </label>
-        <input type="text" name="title" id="title" value="<%= service.title %>">
+        <input type="text" name="title" id="title" value="<%= service.title %>" class="form-control">
         <label for="servicedescription">Service Description</label>
-        <input type="text" name="description" id="description"value="<%= service.title %>">
+        <input type="text" name="description" id="description"value="<%= service.title %>"class="form-control">
         <br>
         <% service.companies.forEach((company,i)=>{ %>
         <label for="servicecompany1">Comapany Name </label>
-        <input type="text" name="servicecompanyname<%= i+1 %>" id="servicecompanyname<%= i+1 %>"value="<%= company.name %>">
+        <input type="text"class="form-control" name="servicecompanyname<%= i+1 %>" id="servicecompanyname<%= i+1 %>"value="<%= company.name %>">
         <label for="servicecompany1">Price for suv </label>
-        <input type="text" name="company1suvprice" id="company<%= i+1 %>suvprice"value="<%= company.suvprice %>">
+        <input type="text"class="form-control" name="company1suvprice" id="company<%= i+1 %>suvprice"value="<%= company.suvprice %>">
         <label for="servicecompany1">Price for minivan </label>
-        <input type="text" name="company1minivanprice" id="company<%= i+1 %>minivanprice"value="<%= company.minivanprice %>">
+        <input type="text"class="form-control" name="company1minivanprice" id="company<%= i+1 %>minivanprice"value="<%= company.minivanprice %>">
         <label for="servicecompany1">Price for sedan </label>
-        <input type="text" name="company1sedanprice" id="company<%= i+1 %>sedanprice"value="<%= company.sedanprice %>">
+        <input type="text"class="form-control" name="company1sedanprice" id="company<%= i+1 %>sedanprice"value="<%= company.sedanprice %>">
         <br>
         <% }) %>
         <input type="text" id="noOfCompanies" name="noOfCompanies"  style="display: none;" value="<%= service.companies.length %>">

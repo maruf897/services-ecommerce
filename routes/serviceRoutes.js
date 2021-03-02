@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport')
-const {ensureAuthenticated, forwardAuthenticated,modAuthenticated} = require('../config/auth')
+const {ensureAuthenticated, forwardAuthenticated} = require('../config/auth')
 const Service = require("../schemas/serviceSchema");
 const stringSimilarity = require("string-similarity");
 // user get
 
   
 
-router.get("/addservice",modAuthenticated, async (req, res,next) => {
+router.get("/addservice",ensureAuthenticated, async (req, res,next) => {
   let loggedin=false
   if(req.user){
     loggedin = true
@@ -18,7 +18,7 @@ router.get("/addservice",modAuthenticated, async (req, res,next) => {
     loggedin:loggedin
   })
 })
-router.post("/addservice",modAuthenticated, async (req, res) => {
+router.post("/addservice",ensureAuthenticated, async (req, res) => {
   try { 
     let newService = new Service(req.body) ;
     const createdService = await newService.save();
@@ -47,20 +47,21 @@ router.get("/:id", async (req, res,next) => {
 })
 
 })
-router.get("/edit/:id",modAuthenticated, async (req, res,next) => {
+router.get("/edit/:id",ensureAuthenticated, async (req, res,next) => {
   Service.findById(req.params.id, function (err, service)  {
     res.render('editservice.ejs',{
-        service:service
+        service:service,
+        loggedin:true
     })
 })
 
 })
-router.post("/edit/:id",modAuthenticated, async (req, res,next) => {
+router.post("/edit/:id",ensureAuthenticated, async (req, res,next) => {
   
   await Service.replaceOne({_id: req.params.id},req.body)
 
 })
-router.get("/delete/:id",modAuthenticated, async (req, res,next) => {
+router.get("/delete/:id",ensureAuthenticated, async (req, res,next) => {
   await Service.deleteOne({_id: req.params.id})
   res.redirect("/users/dashboard")
 
