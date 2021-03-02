@@ -14,7 +14,8 @@ var serviceSchema = new Schema({
     type: String
     
   },
-  companies:  [companySchema] 
+  companies:  [companySchema] ,
+  owner: { type: String, required:true}
   
 });
 

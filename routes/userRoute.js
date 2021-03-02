@@ -56,7 +56,7 @@ router.get('/dashboard', modAuthenticated, (req,res)=>{
   if(req.user){
     loggedin = true
   }
-  Service.find({},(err,services)=>{
+  Service.find({owner: req.user._id},(err,services)=>{
     
     res.render('dashboard.ejs',{
       user: req.user,

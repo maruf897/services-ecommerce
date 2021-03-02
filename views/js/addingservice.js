@@ -16,6 +16,7 @@ $('#addcompany').click(()=>{
 })
 $('#submitBttn').click((e)=>{
     e.preventDefault()
+    console.log($('.uid').text())
     let Companies = new Array
     for(let i =1;i<=noOfComapany;i++){
         console.log($(`#servicecompanyname${i}`).val())
@@ -30,7 +31,8 @@ $('#submitBttn').click((e)=>{
     let Data = {
         title: $('#title').val(),
         description: $('#description').val(),
-        companies : Companies
+        companies : Companies,
+        owner: $('.uid').text()
     }
     $.ajax({
         type: "POST",
